@@ -21,15 +21,15 @@
           <div class="toggle-button" @click="toggleCollapse">
             <i :class="arrows2" ref="caret"></i>
           </div>
-          <el-menu :default-openeds="['1', '3']" :collapse="isCollapse">
+          <el-menu router :default-openeds="['1', '3']" :collapse="isCollapse">
             <el-submenu index="1">
               <template slot="title">
-                <i class="el-icon-message" style="padding-right:20px;"></i>导航一
+                <i class="el-icon-message" style="padding-right:20px;"></i>内容管理
               </template>
               <el-menu-item-group>
-                <template slot="title">分组一</template>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
+                <template slot="title">分类</template>
+                <el-menu-item index="/categories/create">新建分类</el-menu-item>
+                <el-menu-item index="/categories/list">分类列表</el-menu-item>
               </el-menu-item-group>
               <el-menu-item-group title="分组2">
                 <el-menu-item index="1-3">选项3</el-menu-item>
@@ -56,31 +56,10 @@
                 <el-menu-item index="2-4-1">选项4-1</el-menu-item>
               </el-submenu>
             </el-submenu>
-            <el-submenu index="3">
-              <template slot="title">
-                <i class="el-icon-setting" style="padding-right:20px;"></i>导航三
-              </template>
-              <el-menu-item-group>
-                <template slot="title">分组一</template>
-                <el-menu-item index="3-1">选项1</el-menu-item>
-                <el-menu-item index="3-2">选项2</el-menu-item>
-              </el-menu-item-group>
-              <el-menu-item-group title="分组2">
-                <el-menu-item index="3-3">选项3</el-menu-item>
-              </el-menu-item-group>
-              <el-submenu index="3-4">
-                <template slot="title">选项4</template>
-                <el-menu-item index="3-4-1">选项4-1</el-menu-item>
-              </el-submenu>
-            </el-submenu>
           </el-menu>
         </el-aside>
         <el-main>
-          <el-table :data="tableData">
-            <el-table-column prop="date" label="日期" width="140"></el-table-column>
-            <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-            <el-table-column prop="address" label="地址"></el-table-column>
-          </el-table>
+          <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -89,13 +68,7 @@
 <script>
 export default {
   data() {
-    const item = {
-      date: "2016-05-02",
-      name: "王小虎",
-      address: "上海市普陀区金沙江路 1518 弄",
-    };
     return {
-      tableData: Array(10).fill(item),
       //   控制侧边栏的展开与收缩
       isCollapse: false,
       //   控制侧边栏展开与收缩的箭头
