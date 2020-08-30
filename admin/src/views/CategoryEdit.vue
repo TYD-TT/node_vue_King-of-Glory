@@ -2,6 +2,11 @@
   <div>
     <h1>{{id ? '编辑' : '新建'}}分类</h1>
     <el-form label-width="120px" @submit.native.prevent="save">
+      <el-form-item label="上级分类">
+        <el-select v-model="model.parent">
+          <el-option v-for="(item,key) in parents" :key="key" :label="item.name" :value="item._id"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="名称">
         <el-input v-model="model.name"></el-input>
       </el-form-item>
@@ -22,10 +27,12 @@ export default {
       model: {
         name: "",
       },
+      parents: [],
     };
   },
   created() {
     this.id && this.fetch();
+    this.fetchParents();
   },
   methods: {
     // 将新建的分类存入数据库
@@ -44,8 +51,14 @@ export default {
     // 编辑分类时查找需要编辑的基本信息
     async fetch() {
       const res = await this.$http.get(`categories/${this.id}`);
-      console.log(res);
       this.model = res.data;
+    },
+    
+    // 查询父级分类
+    async fetchParents() {
+      const res = await this.$http.get(`categories`);
+      console.log(res);
+      this.parents = res.data;
     },
   },
 };

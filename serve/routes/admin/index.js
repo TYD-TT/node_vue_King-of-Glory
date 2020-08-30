@@ -25,7 +25,7 @@ module.exports = (app) => {
 
     // 查询所添加的分类接口
     router.get('/categories', async (req, res) => {
-        const items = await Category.find()
+        const items = await Category.find().populate('parent')
         res.send(items)
     })
 
