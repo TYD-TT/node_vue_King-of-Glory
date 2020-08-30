@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table row-key="_id" :data="items" border :tree-props="{children: 'parent',hasChildren: 'hasChildren'}" lazy>
+    <el-table row-key="_id" :data="items" border :tree-props="{children: 'parent'}" stripe>
       <el-table-column prop="_id" label="ID" sortable width="250"></el-table-column>
       <el-table-column prop="name" label="分类名称" sortable width="180"></el-table-column>
       <el-table-column label="操作" width="180">
@@ -40,26 +40,25 @@ export default {
           this.children.push(this.items[i]);
           n[m] = i;
           m++;
+        } else {
+          this.items[i].parent = [];
         }
       }
       // 将原数组中的所有含有子分类的数据删除
       for (let i = 0; i < n.length; i++) {
         if (i == 0) {
           this.items.splice(n[i], 1);
-        }else{
+        } else {
           this.items.splice(n[i] - i, 1);
         }
       }
       for (let i = 0; i < this.items.length; i++) {
         for (let j = 0; j < this.children.length; j++) {
-          if(this.items[i]._id === this.children[j].parent._id){
-            console.log(this.children[j]);
-            this.items[i].parent=[] 
-            this.items[i].parent.push(JSON.parse(JSON.stringify(this.children[j])))
+          if (this.items[i]._id === this.children[j].parent._id) {
+            this.items[i].parent.push(this.children[j]);
           }
         }
       }
-      console.log(this.items);
     },
     // 删除分类
     async remove(row) {
@@ -74,11 +73,6 @@ export default {
         this.$message.success("删除成功!");
       });
     },
-    // load(tree, treeNode, resolve) {
-    //   setTimeout(() => {
-    //     resolve(this.children);
-    //   }, 1000);
-    // },
   },
 };
 </script>
