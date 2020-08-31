@@ -45,4 +45,13 @@ module.exports = (app) => {
         req.Model = require(`../../models/${modelName}`)
         next()
     }, router)
+
+    const multer = require('multer')
+    const upload = multer({ dest: __dirname + '/../../uploads' })
+    // upload.single('file') 代表单个文件的上传
+    app.post('/admin/api/upload', upload.single('file'),async (req, res) => {
+        const file = req.file
+        file.url = `http://127.0.0.1:3000/uploads/${file.filename}`
+        res.send(file)
+    })
 }

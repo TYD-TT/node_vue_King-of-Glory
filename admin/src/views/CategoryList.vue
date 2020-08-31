@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table row-key="_id" :data="items" border :tree-props="{children: 'parent'}" stripe>
-      <el-table-column prop="_id" label="ID" sortable width="250"></el-table-column>
+      <el-table-column prop="_id" label="ID" sortable width="280"></el-table-column>
       <el-table-column prop="name" label="分类名称" sortable width="200"></el-table-column>
       <el-table-column label="操作" width="200">
         <template slot-scope="scope">
