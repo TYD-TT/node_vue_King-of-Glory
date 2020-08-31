@@ -57,7 +57,6 @@ export default {
     // 查询父级分类
     async fetchParents() {
       const res = await this.$http.get(`rest/categories`);
-      console.log(res);
       this.parents = res.data;
     },
   },

@@ -1,11 +1,9 @@
 <template>
   <div>
-    <h1>分类列表</h1>
-    <el-table :data="items" border>
-      <el-table-column prop="_id" label="ID" width="230"></el-table-column>
-      <el-table-column prop="parent.name" label="上级分类"></el-table-column>
-      <el-table-column prop="name" label="分类名称"></el-table-column>
-      <el-table-column label="操作" width="180">
+    <el-table row-key="_id" :data="items" border :tree-props="{children: 'parent'}" stripe>
+      <el-table-column prop="_id" label="ID" sortable width="250"></el-table-column>
+      <el-table-column prop="name" label="分类名称" sortable width="200"></el-table-column>
+      <el-table-column label="操作" width="200">
         <template slot-scope="scope">
           <el-button
             type="primary"
@@ -18,12 +16,12 @@
     </el-table>
   </div>
 </template>
-
 <script>
 export default {
   data() {
     return {
       items: [],
+      children: [],
     };
   },
   created() {
@@ -33,8 +31,34 @@ export default {
     // 查询已有分类
     async fetch() {
       const res = await this.$http.get("rest/categories");
-      console.log(res);
       this.items = res.data;
+      const n = [];
+      var m = 0;
+      // 将所有子分类筛选出来
+      for (let i = 0; i < this.items.length; i++) {
+        if (this.items[i].parent !== undefined) {
+          this.children.push(this.items[i]);
+          n[m] = i;
+          m++;
+        } else {
+          this.items[i].parent = [];
+        }
+      }
+      // 将原数组中的所有含有子分类的数据删除
+      for (let i = 0; i < n.length; i++) {
+        if (i == 0) {
+          this.items.splice(n[i], 1);
+        } else {
+          this.items.splice(n[i] - i, 1);
+        }
+      }
+      for (let i = 0; i < this.items.length; i++) {
+        for (let j = 0; j < this.children.length; j++) {
+          if (this.items[i]._id === this.children[j].parent._id) {
+            this.items[i].parent.push(this.children[j]);
+          }
+        }
+      }
     },
     // 删除分类
     async remove(row) {
