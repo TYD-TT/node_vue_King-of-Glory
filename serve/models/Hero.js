@@ -20,6 +20,8 @@ const scheam = new mongoose.Schema({
         name: { type: String },
         description: { type: String },
         tips: { type: String },
+        coolingTimes: { type: String },
+        consume: { type: String }
     }],
 
     // 顺风出装
