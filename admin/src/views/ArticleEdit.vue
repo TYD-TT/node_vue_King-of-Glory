@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{id ? '编辑' : '新建'}}文章</h1>
-    <el-form label-width="120px" @submit.native.prevent="save">
+    <el-form label-width="120px" @submit.native.prevent="save" height="900px">
       <el-form-item label="所属分类">
         <el-select v-model="model.categories">
           <el-option
@@ -21,6 +21,8 @@
       <el-form-item>
         <el-button type="primary" native-type="submit">保存</el-button>
       </el-form-item>
+      <!-- 回到顶部 -->
+        <el-backtop :bottom="100" :visibility-height="100"	></el-backtop>
     </el-form>
   </div>
 </template>
@@ -86,5 +88,5 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less" scope>
 </style>
