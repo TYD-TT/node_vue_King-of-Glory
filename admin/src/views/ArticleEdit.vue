@@ -22,7 +22,7 @@
         <el-button type="primary" native-type="submit">保存</el-button>
       </el-form-item>
       <!-- 回到顶部 -->
-        <el-backtop :bottom="100" :visibility-height="100"> <div>^</div></el-backtop>
+        <el-backtop :bottom="100" :visibility-height="100"></el-backtop>
     </el-form>
   </div>
 </template>
