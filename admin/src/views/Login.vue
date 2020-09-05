@@ -26,8 +26,9 @@ export default {
   methods: {
       async login(){
           const res = await this.$http.post('login',this.model)
-          console.log(res.data);
-        //   console.log(this.model);
+          localStorage.token = res.data.token
+          this.$message.success('登录成功')
+          this.$router.push('/')
       }
   }
 };

@@ -10,6 +10,7 @@
           class="avatar-uploader"
           :action="$http.defaults.baseURL + '/upload'"
           :show-file-list="false"
+          :headers="getAuthHeaders()"
           :on-success="afterUpload"
         >
           <img v-if="model.icon" :src="model.icon" class="avatar" />
@@ -64,7 +65,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scope>
 .avatar-uploader .el-upload {
   border: 1px dashed #180404;
   border-radius: 6px;
@@ -78,14 +79,14 @@ export default {
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
-  width: 78px;
-  height: 78px;
-  line-height: 78px;
+  min-width: 6rem;
+  height: 6rem;
+  line-height: 6rem;
   text-align: center;
 }
 .avatar {
-  width: 78px;
-  height: 78px;
+  min-width: 6rem;
+  height: 6rem;
   display: block;
 }
 </style>

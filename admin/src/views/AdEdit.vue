@@ -28,6 +28,7 @@
                 class="avatar-uploader"
                 :action="$http.defaults.baseURL + '/upload'"
                 :show-file-list="false"
+                :headers="getAuthHeaders()"
                 :on-success="res=>$set(item,'image',res.url)"
               >
                 <img v-if="item.image" :src="item.image" class="avatar" />
@@ -86,7 +87,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scope>
 .avatar-uploader .el-upload {
   border: 1px dashed #180404;
   border-radius: 6px;
@@ -100,14 +101,14 @@ export default {
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
-  width: 178px;
-  height: 108px;
-  line-height: 108px;
+  min-width: 6rem;
+  height: 6rem;
+  line-height: 6rem;
   text-align: center;
 }
 .avatar {
-  width: 178px;
-  height: 108px;
+  min-width:6rem;
+  height: 6rem;
   display: block;
 }
 </style>
