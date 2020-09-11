@@ -1,5 +1,6 @@
 {
     "editor.fontSize": 16,
     "css.remoteStyleSheets": [],
-    "px-to-rem.px-per-rem": 13
+    "cssrem.rootFontSize": 13,
+    "cssrem.fixedDigits": 4
 }

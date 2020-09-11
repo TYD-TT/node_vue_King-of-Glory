@@ -70,6 +70,19 @@
         <span class="fs-sm">收起</span>
       </div>
     </div>
+    <!-- end of nav icons -->
+
+    <m-list-card icon="menu1" title="新闻资讯" :categories="newsCats">
+      <template #items="{category}">
+        <div class="py-2" v-for="(news, key) in category.newList" :key="key">
+          <span>[{{news.categoryName}}]</span>
+          <span> | </span>
+          <span>{{news.title}}</span>
+          <span>{{news.date}}</span>
+        </div>
+      </template>
+    </m-list-card>
+    <m-card title="英雄列表" icon="menu1"></m-card>
   </div>
 </template>
 
@@ -87,6 +100,53 @@ export default {
           el: ".swiper-pagination",
         },
       },
+      newsCats: [
+        {
+          name: "热门",
+          newList: new Array(5).fill(1).map((v) => ({
+            categoryName: "公告",
+            title: "狄某有话说 | 嚣张“演员”在线强卖？",
+            date: "09/10",
+            v: v,
+          })),
+        },
+        {
+          name: "新闻",
+          newList: new Array(5).fill(1).map((v) => ({
+            categoryName: "新闻",
+            title: "狄某有话说 | 嚣张“演员”在线强卖？",
+            date: "09/10",
+            v: v,
+          })),
+        },
+        {
+          name: "公告",
+          newList: new Array(5).fill(1).map((v) => ({
+            categoryName: "公告",
+            title: "狄某有话说 | 嚣张“演员”在线强卖？",
+            date: "09/10",
+            v: v,
+          })),
+        },
+        {
+          name: "活动",
+          newList: new Array(5).fill(1).map((v) => ({
+            categoryName: "活动",
+            title: "狄某有话说 | 嚣张“演员”在线强卖？",
+            date: "09/10",
+            v: v,
+          })),
+        },
+        {
+          name: "赛事",
+          newList: new Array(5).fill(1).map((v) => ({
+            categoryName: "赛事",
+            title: "狄某有话说 | 嚣张“演员”在线强卖？",
+            date: "09/10",
+            v: v,
+          })),
+        },
+      ],
     };
   },
 };

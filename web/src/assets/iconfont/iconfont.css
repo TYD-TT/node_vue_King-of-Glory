@@ -1,0 +1,33 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1599726162462'); /* IE9 */
+  src: url('iconfont.eot?t=1599726162462#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPsAAsAAAAACIQAAAOeAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqEIINjATYCJAMUCwwABCAFhG0HSRtwBxEVnA/Jfh5kp8WTuSPUwnf5PhrJSHWfgwd6z3qTmXSz6YpHsDgB2TNZnNg98UsNgK05B2xU1FxRzqJH/5CnQnppRsH/P/fuuXU8sHntWSApzj2oE2AcUEBjDU0oLZC+KP9h7PIiz0MAJhnIh6hWo54DA4U+TQCiV/eu7TESKlQFXmBIbQVrFWIOOoY2VbsBzPa+Lz5SRBigoUv0ixp1qd6JSgEzNaO0ghatpIU1nAFgm0AC+QAFYkChqRcyCOVDYsp/p6gEmBhoaAEzEBnImJoxGFR4G5KYxj88kGgoBAgbemYYAJVQWEHAtBBICEQi0CCQEYGC1Iyca8nUATBhZBW8x7hsfQQSHWGEhhlM/ZlyI12dHM7O7i5dV5yYdirl9PST7a0dR6Yd2yVWR9yc/iM9HofX6/T73T7fMFPg8hnx3R5Py7AFC6yF9vDpi1MWucKm8bSOvUd6HHu8jkPnMq7P4nNltpJWVD/oTed1Oum+i1IS/X6Xz+/2v3Ru3YvHuXRHthv1HOiMrCl+9+E0GZanKdKxUMOG23c3bOjQrRQaj9We1jB2kSWxRpd8XWokRj+p9kRkzsvPJCuelH/lSUh3GLZf/lEnER3l219X2SifPJEbIR0ybF40IGvSOOt4zPHQcaFIZQQpJ0Y79u0o/vLnpN2E9CUThzfK+1wrVCbvlIwzIuzp0uRKd7FU5XBZLaRm1ML5Taa2/5g+nFbqaEhL26DLOxZk3JK5WFtX3xIlM4gb4roxrMWByxPc4VP1SvmL5WlaPzZZJccqhgEQtGROaQHIJuKeID8jjcpKENwln8ihP8Bv+NHLvW0jy/027AqAx5Zs4rmClqK7xUA7bzGvm92wRSlcXa0rqdFiSRadcjcKozG5updsi+HZMJZ4iAwCg2ND0AghPUgMsqEULh/o2CkGNgwqgkleam62E8sAJEKFAnmYCEAQxW7QiOA0SKK4iVK4p6CTwGewESUkmLhE7J52AXsRd0dGJWhB/yEa6p2plZ2ffUP/bhXHuR7hhTxGL1R5mY5esUceYsH48bWIA8fUwQVchm1LMDAlNJIHkeFQFK7oRbmhbrLjyKgELaD/QDTUO6ez7DKfv6F/t4ormsrUL+Qx9g5U5JQNUFdR36jpUgaPH18j4vAkx9QBF2jA1ggRMBSPSmgkJ3QIDAcK1M41FeXTS7p73AWY6MfqQhNSKKELG4sOyjSLDvv30h5ebY1imwVkmkwAAAA=') format('woff2'),
+  url('iconfont.woff?t=1599726162462') format('woff'),
+  url('iconfont.ttf?t=1599726162462') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1599726162462#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-back:before {
+  content: "\e71f";
+}
+
+.icon-menu:before {
+  content: "\e60f";
+}
+
+.icon-menu1:before {
+  content: "\e60a";
+}
+
+.icon-card-hero:before {
+  content: "\e61f";
+}
+

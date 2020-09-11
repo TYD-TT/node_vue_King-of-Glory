@@ -139,16 +139,28 @@ $type in $spacing-types {
 }
 
 // nav
-.nav-icons {
-    border-top: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
+.nav {
+    display: flex;
+
     .nav-item {
-        border-bottom: 0.2308rem solid transparent;
+        border-bottom: 3.0004px solid transparent;
         padding-bottom: 0.2rem;
+        color: map-get($map: $colors, $key: 'primary');
 
         &.active {
-            border-bottom: 0.2308rem solid #fff
+            border-bottom-color: map-get($colors, 'primary')
         }
+    }
+
+    &.nav-inverse {
+        .nav-item {
+            color: map-get($map: $colors, $key: 'white');
+
+            &.active {
+                border-bottom-color:map-get($colors, 'white')
+            }
+        }
+
     }
 }
 
